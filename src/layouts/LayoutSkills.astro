@@ -1,0 +1,62 @@
+---
+import BasicLayout from "./BasicLayout.astro";
+import { skillCategories } from "../data/skills";
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<BasicLayout page="skills" title={title} description={description}>
+  <main class="mx-auto max-w-3xl w-full h-screen p-8 text-neutral-100">
+    <a
+      href="/"
+      class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg mb-8"
+      >Back</a
+    >
+    <div class="my-10">
+      <h1 class="text-5xl font-semibold">{title}</h1>
+      <div class="flex flex-wrap gap-3 pt-4">
+        {
+          skillCategories.map((category) => (
+            <a
+              href={`#${category.id}`}
+              class="bg-neutral-800 hover:bg-neutral-700 px-4 py-2 rounded-full text-sm transition-colors"
+            >
+              {category.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <article class="prose prose-slate prose-invert">
+      <div class="w-full space-y-12">
+        {
+          skillCategories.map((category) => (
+            <section id={category.id} class="scroll-m-20">
+              <h2 class="text-2xl font-bold mb-4 text-neutral-100">
+                {category.name}
+              </h2>
+              <div class="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span class="bg-neutral-800 px-4 py-2 rounded-lg text-sm">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </article>
+  </main>
+</BasicLayout>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

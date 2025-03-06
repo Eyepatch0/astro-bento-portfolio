@@ -4,42 +4,17 @@ import { LINKS } from "../lib/constants";
 interface Props {
   title: string;
   description: string;
-  page?: "travel" | "blog";
+  page?: "blog" | "projects" | "skills";
   slug?: string | undefined;
   pubDate?: string;
 }
 
 const { title, description, page, slug, pubDate } = Astro.props;
-const image =
-  page === "travel"
-    ? `${Astro.url.origin}/globe_preview.webp"`
-    : `${Astro.url.origin}/og-image.png`;
+const image = `${Astro.url.origin}/og-image.png`;
 
 const schema =
-  page !== "blog"
+  page === "blog"
     ? {
-        "@context": "http://schema.org",
-        "@type": "Person",
-        name: "Gianmarco",
-        url: Astro.url.origin,
-        sameAs: [LINKS.linkedin, LINKS.github],
-        image: `${Astro.url.origin}/og-image.png`,
-        jobTitle: "Freelance Frontend Developer",
-        worksFor: {
-          "@type": "Organization",
-          name: "Self-Employed",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Italy",
-            addressCountry: "IT",
-          },
-        },
-        nationality: {
-          "@type": "Country",
-          name: "Italy",
-        },
-      }
-    : {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         mainEntityOfPage: {
@@ -51,13 +26,13 @@ const schema =
         image: `${Astro.url.origin}/og-image.png`, //TODO: dynamic
         author: {
           "@type": "Person",
-          name: "Gianmarco",
+          name: "Mohammed Syed",
           url: Astro.url.origin,
           sameAs: [LINKS.linkedin, LINKS.github],
         },
         publisher: {
           "@type": "Organization",
-          name: "Gianmarco",
+          name: "Mohammed Syed",
           logo: {
             "@type": "ImageObject",
             url: `${Astro.url.origin}/og-image.png`,
@@ -65,7 +40,59 @@ const schema =
         },
         datePublished: pubDate || new Date().toISOString(),
         dateModified: pubDate || new Date().toISOString(),
-      };
+      }
+    : page === "projects"
+      ? {
+          "@context": "http://schema.org",
+          "@type": "SoftwareSourceCode",
+          name: title,
+          description: description,
+          url: Astro.url.origin + "/projects/" + slug,
+          author: {
+            "@type": "Person",
+            name: "Mohammed Syed",
+            url: Astro.url.origin,
+            sameAs: [LINKS.linkedin, LINKS.github],
+          },
+          datePublished: pubDate || new Date().toISOString(),
+          dateModified: pubDate || new Date().toISOString(),
+        }
+      : page === "skills"
+        ? {
+            "@context": "http://schema.org",
+            "@type": "ItemList",
+            name: "Skills and Expertise",
+            description: "Technical skills and expertise in various domains",
+            url: `${Astro.url.origin}/skills`,
+            author: {
+              "@type": "Person",
+              name: "Mohammed Syed",
+              url: Astro.url.origin,
+              sameAs: [LINKS.linkedin, LINKS.github],
+            },
+          }
+        : {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            name: "Mohammed Syed",
+            url: Astro.url.origin,
+            sameAs: [LINKS.linkedin, LINKS.github],
+            image: `${Astro.url.origin}/og-image.png`,
+            jobTitle: "Data Scientist",
+            worksFor: {
+              "@type": "Organization",
+              name: "Self-Employed",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "United States of America",
+                addressCountry: "USA",
+              },
+            },
+            nationality: {
+              "@type": "Country",
+              name: "India",
+            },
+          };
 ---
 
 <!doctype html>
@@ -98,13 +125,18 @@ const schema =
 
     <link rel="preconnect" href="https://cdn.fontshare.com" />
     {
-      page === "travel" && (
-        <link rel="canonical" href={`${Astro.url.origin}/travel`} />
+      page === "blog" && (
+        <link rel="canonical" href={`${Astro.url.origin}/blog/${slug}`} />
       )
     }
     {
-      page === "blog" && (
-        <link rel="canonical" href={`${Astro.url.origin}/blog/${slug}`} />
+      page === "projects" && (
+        <link rel="canonical" href={`${Astro.url.origin}/projects/${slug}`} />
+      )
+    }
+    {
+      page === "skills" && (
+        <link rel="canonical" href={`${Astro.url.origin}/skills`} />
       )
     }
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -9,7 +9,8 @@ export default defineConfig({
       "src/components/**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}}",
       "src/pages/**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}}",
       "src/layouts/**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}}"
-    ],  },
+    ],
+  },
   theme: {
     boxShadow: {
       custom: `2px 2px 0`,

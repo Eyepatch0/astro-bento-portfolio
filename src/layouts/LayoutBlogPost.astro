@@ -11,6 +11,7 @@ type Props = {
 };
 
 const { title, description, pubDate, minutesRead, url } = Astro.props;
+console.log(Astro.props)
 ---
 
 <BasicLayout slug={url} page="blog" title={title} description={description}>

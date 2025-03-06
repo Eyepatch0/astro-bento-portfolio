@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  tag: string[];
+  url: string;
+}
+
+const { title, tag, url } = Astro.props;
+---
+
+<li
+  class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-2"
+>
+  <a
+    class="text-sm md:text-base decoration-none flex justify-between"
+    href={`/projects/${url}`}
+  >
+    <p class="inline-block whitespace-nowrap">
+      {title}
+    </p>
+    <div class="text-right flex gap-2">
+      {
+        tag.map((item) => (
+          <span class="bg-neutral-800 px-2 py-0.5 rounded text-xs">{item}</span>
+        ))
+      }
+    </div>
+  </a>
+</li>

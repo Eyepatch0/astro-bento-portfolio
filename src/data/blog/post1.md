@@ -1,18 +1,15 @@
 ---
-title: "Hello, World"
-description: "this is a post example"
-pubDate: 2023-01-21
+title: "Hello, World!"
+description: "Finally launched my portfolio! Hoping to start writing soon."
+pubDate: 2025-03-06
 category: "intro"
 draft: false
 ---
 
 # Hi there!
 
-This Markdown file creates a page at `your-domain.com/blog/post1/`
+I finally got time to build and deploy my own portfolio! While this isn't a blog post yet, I hope to start writing them soon.
 
-It probably isn't styled much, but Markdown does support:
+I'm **Mohammed Syed**, a data science graduate student at the **University of Maryland, College Park**, with around two years of experience in software engineering, primarily in full-stack web development. I have a deep interest in data science, machine learning, and AI.
 
-- **bold** and _italics._
-- lists
-- [links](https://astro.build)
-- and more!
+Beyond coding, I enjoy gardening, watching tech videos, and reading tech articles and whitepapers on emerging technologies. For now, I’m focused on studying, researching, and building cool projects, and I plan to dive into blogging and publishing research papers soon. If you're interested in collaborating, feel free to reach out!

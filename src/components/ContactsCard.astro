@@ -1,34 +1,50 @@
 ---
 import Card from "./Card/index.astro";
 import { LINKS } from "../lib/constants";
+import { Icon } from "astro-icon/components";
 ---
 
 <Card colSpan="md:col-span-1" rowSpan="md:row-span-4">
   <div class="h-full">
     <header class="flex items-center">
-      <h1 class="text-white text-xl font-bold">
-        Let's start working together!
-      </h1>
+      <h1 class="text-white text-xl font-bold">Want to get in touch?</h1>
     </header>
     <address class="flex flex-col mt-4">
       <h2 class="text-gray-500">Contact Details</h2>
-      <p>contact@gianmarcocavallo.com</p>
-      <p>Italy</p>
+      <p>contact@.com</p>
     </address>
     <div class="flex flex-col mt-4 w-fit">
       <h2 class="text-gray-500">Socials</h2>
       <ul>
         <li>
-          <a href={LINKS.linkedin} target="_blank">Linkedin</a>
+          <a
+            href={LINKS.linkedin}
+            target="_blank"
+            class="flex items-center gap-2 hover:text-blue-500"
+          >
+            <Icon name="ri:linkedin-fill" size={20} />
+            Linkedin
+          </a>
         </li>
         <li>
-          <a href={LINKS.github} target="_blank">Github</a>
+          <a
+            href={LINKS.github}
+            target="_blank"
+            class="flex items-center gap-2 hover:text-gray-400"
+          >
+            <Icon name="ri:github-fill" size={20} />
+            Github
+          </a>
         </li>
         <li>
-          <a href={LINKS.medium} target="_blank">Medium</a>
-        </li>
-        <li>
-          <a href={LINKS.discord} target="_blank">Discord</a>
+          <a
+            href={LINKS.kaggle}
+            target="_blank"
+            class="flex items-center gap-2 hover:text-blue-400"
+          >
+            <Icon name="simple-icons:kaggle" size={20} />
+            Kaggle
+          </a>
         </li>
       </ul>
     </div>
