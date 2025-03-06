@@ -26,6 +26,7 @@ The portfolio was built using:
 - • **unocss** for utility-first styling
 - • **motion** for animations and smooth transitions
 - • **d3** for data visualization elements
+- • **Netlify** for deployment
 
 ## Implementation
 
@@ -33,4 +34,5 @@ This project is a customized fork of the [Bento Astro Portfolio](https://github.
 
 ## Links
 
-- [Repository](https://github.com/Eyepatch0/astro-bento-portfolio)
+- For more details: [Repository](https://github.com/Eyepatch0/astro-bento-portfolio)
+- Checkout: [Live Demo](https://mohammed-syed.netlify.app/)

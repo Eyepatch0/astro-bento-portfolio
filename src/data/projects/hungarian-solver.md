@@ -33,5 +33,5 @@ The application takes an input matrix representing the assignment problem, and t
 
 ## Links
 
-- Test it out: [Live Demo](https://hungarian-solver.vercel.app/)
+- Check it out: [Live Demo](https://hungarian-solver.vercel.app/)
 - For more details: [Repository](https://github.com/Eyepatch0/HungarianSolver)
