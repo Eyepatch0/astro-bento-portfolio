@@ -3,7 +3,7 @@ title: "Network Canvas"
 description: "A Cloudflare Worker to handle webhook requests and route them based on defined conditions."
 repository: "https://github.com/Eyepatch0/Network-Canvas"
 url: "network-canvas"
-tag: ["Python", "Pandas", "Plotly", "Algorithms"]
+tag: ["Data Science", "Python", "Pandas", "Plotly", "Algorithms"]
 pubDate: 2025-03-08
 ---
 
